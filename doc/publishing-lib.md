@@ -45,9 +45,11 @@ When you want to publish your package in a repository that is inside an organiza
 
     >Note: Shipping the compiled binaries instead of the source code is possible, but not part of this tutorial.
 
-### Create a public/private key pair for signing packages
+### Package Signing
+You need a key pair(public key and private key) for package signing. The private key will be used by "apax pack" for signing packages. The public key can be entered in the "publicKeys" section of your apax.yml file to detect corruption or manipulation of the package when installing it. 
+    
 
-1. By excuting the following command in terminal. The key should be created once for the complete department/company
+1. By excuting the following command in terminal. The key should be created once for the complete department/company. If the key already existed, it will be override.
 
     ```cli
         apax keygen --override-existing
@@ -57,9 +59,8 @@ When you want to publish your package in a repository that is inside an organiza
     ![debug](./doc/images/../../images/keypair.PNG)
 
 
-    >Note the `apax pack`need the key to sign the package. 
 
-1. Users can enter your package scope and public key in the publicKeys section of their apax.yml to detect corruption or manipulation when installing packages.
+1. When reference the package in your project, you can enter the corresponding pubklic key to verify the integrity of the package.
 
     ![debug](./doc/images/../../images/addpublickeys.PNG)
 
